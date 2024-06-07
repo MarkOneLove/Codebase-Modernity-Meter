@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "TZ5V8hZrdp2Hd7oo6/0XDgoKZenRn4M3pAp712ecWesWgPis5g/HAnaO9tgKf4I4ClVeblQw/wa4GiKePn9Lqw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\markt\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\microsoft.codeanalysis.common\\4.9.2\\microsoft.codeanalysis.common.4.9.2.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.9.2\\microsoft.codeanalysis.csharp.4.9.2.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\system.reflection.metadata\\8.0.0\\system.reflection.metadata.8.0.0.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
