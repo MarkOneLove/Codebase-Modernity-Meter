@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ModernityAnalyzer"
   ],
-  "SelectedNode": "\\C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer",
+  "SelectedNode": "\\ModernityAnalyzer\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -669,9 +669,8 @@ namespace CodeModernityMeter1
                 }
             }
 
-            // C# 10.0: Mix Declarations and Variables in Deconstruction
-            // Ton of different mixex declarations
-            /*if (node is AssignmentExpressionSyntax assignment && assignment.IsKind(SyntaxKind.SimpleAssignmentExpression))
+            // C# 10.0: Mix Declarations and Variables in Deconstruction (only for tuples)
+            if (node is AssignmentExpressionSyntax assignment && assignment.IsKind(SyntaxKind.SimpleAssignmentExpression))
             {
                 if (assignment.Left is TupleExpressionSyntax tuple)
                 {
@@ -690,7 +689,7 @@ namespace CodeModernityMeter1
                         data.dataStruct[10.0] += 1;
                     }
                 }
-            }*/
+            }
 
             // C# 10.0: Allow [AsyncMethodBuilder(...)] on methods
             // Check if the node is a method declaration
@@ -728,6 +727,105 @@ namespace CodeModernityMeter1
                 }
             }*/
 
+            // C# 10.0: Static abstract members in interfaces
+            if (node is InterfaceDeclarationSyntax interfaceDeclaration1)
+            {
+                foreach (var member in interfaceDeclaration1.Members)
+                {
+                    // Check for static abstract methods
+                    if (member is MethodDeclarationSyntax method2 &&
+                        method2.Modifiers.Any(SyntaxKind.StaticKeyword) &&
+                        method2.Modifiers.Any(SyntaxKind.AbstractKeyword))
+                    {
+                        Console.WriteLine($"Static abstract method found in interface --> 10.0");
+                        data.dataStruct[10.0] += 1;
+                    }
+
+                    // Check for static abstract properties
+                    if (member is PropertyDeclarationSyntax property &&
+                        property.Modifiers.Any(SyntaxKind.StaticKeyword) &&
+                        property.Modifiers.Any(SyntaxKind.AbstractKeyword))
+                    {
+                        Console.WriteLine($"Static abstract property found in interface --> 10.0");
+                        data.dataStruct[10.0] += 1;
+                    }
+
+                    // Check for static abstract events (if applicable)
+                    if (member is EventDeclarationSyntax @event &&
+                        @event.Modifiers.Any(SyntaxKind.StaticKeyword) &&
+                        @event.Modifiers.Any(SyntaxKind.AbstractKeyword))
+                    {
+                        Console.WriteLine($"Static abstract event found in interface --> 10.0");
+                        data.dataStruct[10.0] += 1;
+                    }
+                }
+            }
+
+            // C# 10.0: Lambda improvements
+            // Check if the node is a lambda expression
+            if (node is SimpleLambdaExpressionSyntax simpleLambda2)
+            {
+                if (CheckLambda(simpleLambda2)) { data.dataStruct[10.0] += 1; }
+            }
+            else if (node is ParenthesizedLambdaExpressionSyntax parenthesizedLambda)
+            {
+                if (CheckLambda(parenthesizedLambda)) { data.dataStruct[10.0] += 1; }
+            }
+
+            // C# 10.0: File-scoped namespace: namespace ; instead of namespace {}
+            if (node is FileScopedNamespaceDeclarationSyntax fileScopedNamespace)
+            {
+                Console.WriteLine($"File-scoped namespace found --> 10.0");
+                data.dataStruct[10.0] += 1;
+            }
+
+            // C# 10.0: Parameterless struct constructors
+            if (node is StructDeclarationSyntax structDeclaration3)
+            {
+                foreach (var member in structDeclaration3.Members)
+                {
+                    // Check if the member is a constructor declaration
+                    if (member is ConstructorDeclarationSyntax constructorDeclaration)
+                    {
+                        // Check if the constructor has no parameters
+                        if (!constructorDeclaration.ParameterList.Parameters.Any())
+                        {
+                            Console.WriteLine("Parameterless constructor found in struct --> 10.0");
+                            data.dataStruct[10.0] += 1;
+                        }
+                    }
+                }
+            }
+
+            // C# 10.0: Caller expression attribute
+            if (node is ParameterSyntax parameterSyntax)
+            {
+                foreach (var attributeList in parameterSyntax.AttributeLists)
+                {
+                    foreach (var attribute in attributeList.Attributes)
+                    {
+                        if (attribute.Name.ToString().EndsWith("CallerArgumentExpression"))
+                        {
+                            Console.WriteLine($"CallerArgumentExpression attribute found on parameter --> 10.0");
+                            data.dataStruct[10.0] += 1;
+                        }
+                    }
+                }
+            }
+
+            // ===== FEATURES INTODUCED IN 11.0 =====
+
+            // C# 11.0: File-local types
+            if (node is TypeDeclarationSyntax typeDeclaration)
+            {
+                if (typeDeclaration.Modifiers.Any(SyntaxKind.FileKeyword))
+                {
+                    Console.WriteLine($"File-local type found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+
 
             // Just printing the tree with more details
             // Print additional details of the current node (if any)
@@ -755,7 +853,7 @@ namespace CodeModernityMeter1
         static async Task Main(string[] args)
         {
             // <|><|><|> EDIT TEST CASE HERE <|><|><|>
-            string testCase = TestProgrames.lineProgramme;
+            string testCase = TestProgrames.fileLocTypeProgramme;
 
             SyntaxTree tree = CSharpSyntaxTree.ParseText(testCase);
             CompilationUnitSyntax root = tree.GetCompilationUnitRoot();
@@ -773,7 +871,7 @@ namespace CodeModernityMeter1
             // Get the semantic model
             var semanticModel = compilation.GetSemanticModel(tree);
 
-            // Add all language versions
+            // Add all language versions that are supported by tool
             AnalysisData analysisData = new AnalysisData();
             analysisData.dataStruct.Add(7.1, 0);
             analysisData.dataStruct.Add(7.2, 0);
@@ -781,6 +879,7 @@ namespace CodeModernityMeter1
             analysisData.dataStruct.Add(8.0, 0);
             analysisData.dataStruct.Add(9.0, 0);
             analysisData.dataStruct.Add(10.0, 0);
+            analysisData.dataStruct.Add(11.0, 0);
 
             // Some queries for specific features
 
@@ -805,7 +904,7 @@ namespace CodeModernityMeter1
                 analysisData.dataStruct[8.0] += 1;
             }
 
-            // Find await foreach statements (NOT WORKING)
+            // Find await foreach statements (NOT WORKING!!!!!!!!!!!!!!!!!!)
             var awaitExpressionsInsideForeach = root.DescendantNodes()
                 .OfType<ForEachStatementSyntax>()
                 .SelectMany(foreachStatement => foreachStatement.DescendantNodes().OfType<AwaitExpressionSyntax>());
@@ -832,6 +931,17 @@ namespace CodeModernityMeter1
             //foreach (UsingDirectiveSyntax element in root.Usings)
             //Console.WriteLine($"\t{element.Name}");
 
+            #if DEBUG
+            try
+            {
+                //...
+            }
+            finally
+            {
+                Console.WriteLine("Press enter to close...");
+                Console.ReadLine();
+            }
+            #endif
         }
 
         // Class to store feature versions and all the data -> ToBeDeveloped
@@ -840,12 +950,14 @@ namespace CodeModernityMeter1
             public Dictionary<double, int> dataStruct = new Dictionary<double, int>();
         }
 
+        // Returns if an expression is used in a ref context
         static bool IsRefConditionalExpression(ConditionalExpressionSyntax conditionalExpression)
         {
             // Check if the conditional expression is used in a ref context and not without it
             return (conditionalExpression.WhenTrue is RefExpressionSyntax) && (conditionalExpression.WhenFalse is RefExpressionSyntax);
         }
 
+        // COMPLEX STUFF FOR ENUMERATOR
         static IEnumerable<IMethodSymbol> GetExtensionMethods(SemanticModel semanticModel, ITypeSymbol type, string methodName)
         {
             var methods = semanticModel.Compilation.GetSymbolsWithName(methodName, SymbolFilter.Member)
@@ -856,11 +968,35 @@ namespace CodeModernityMeter1
 
             return methods;
         }
+
+        // Returns if method contains attribute ModuleInitializer
         static bool HasModuleInitializerAttribute(MethodDeclarationSyntax methodSyntax)
         {
             return methodSyntax.AttributeLists
                 .SelectMany(attrList => attrList.Attributes)
                 .Any(attr => attr.Name.ToString() == "ModuleInitializer");
+        }
+
+        // Returns true if lambda uses attributes or has explicit return type 
+        static bool CheckLambda(LambdaExpressionSyntax lambda)
+        {
+            // Check for explicit return type by looking at the body
+            if (lambda is ParenthesizedLambdaExpressionSyntax ple && ple.ReturnType != null)
+            {
+                Console.WriteLine("Lambda with explicit return type found --> 10.0");
+                return true;
+            }
+
+            // Check for attributes on the lambda
+            if (lambda.AttributeLists.Count > 0)
+            {
+                Console.WriteLine("Lambda with attributes found --> 10.0");
+                return true;
+            }
+
+            // Check the inferred type context (not directly detectable in the AST)
+            // This would usually be done through semantic analysis
+            return false;
         }
 
     }

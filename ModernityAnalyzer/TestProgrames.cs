@@ -1116,7 +1116,7 @@ namespace CodeModernityMeter1
         ";
 
         // 10.0 Static abstract members in interfaces
-        public const string staticAbstract = @"
+        public const string staticAbstractProgramme = @"
         interface IExample<T>
         {
             static abstract T CreateInstance();
@@ -1127,6 +1127,101 @@ namespace CodeModernityMeter1
             public static Example CreateInstance()
             {
                 return new Example();
+            }
+        }
+        ";
+
+        // 10.0 Lambda improvements
+        public const string imprLambdaProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                Func<int, int> square = [MyAttribute] (int x) => { return x * x; };
+                var add = (int x, int y) => x + y;
+            }
+        }
+
+        [AttributeUsage(AttributeTargets.Method | AttributeTargets.Delegate)]
+        public class MyAttribute : Attribute
+        {
+        }
+        ";
+
+        // 10.0 File-scoped namespace
+        public const string fileNamespaceProgramme = @"
+        namespace MyNamespace;
+
+        class Program
+        {
+            static void Main()
+            {
+                Console.WriteLine(""Hello, World!"");
+            }
+        }
+        ";
+
+        // 10.0 Parameterless struct constructors
+        public const string pLessStructProgramme = @"
+        public struct Point
+        {
+            public int X;
+            public int Y;
+
+            public Point()
+            {
+                X = -1;
+                Y = -1;
+            }
+
+            public Point(int x, int y)
+            {
+                X = x;
+                Y = y;
+            }
+        }
+        ";
+
+        // 10.0 Caller expression attribute
+        public const string callExprAtrProgramme = @"
+        using System;
+        using System.Runtime.CompilerServices;
+
+        class Program
+        {
+            static void Main()
+            {
+                int value = 42;
+                Validate(value > 50);
+            }
+
+            static void Validate(bool condition, [CallerArgumentExpression(""condition"")] string conditionExpression = null)
+            {
+                if (!condition)
+                {
+                    Console.WriteLine($""Condition failed: {conditionExpression}"");
+                }
+            }
+        }
+        ";
+
+        // 11.0 File-local types
+        public const string fileLocTypeProgramme = @"
+        file class Helper
+        {
+            public static void DoSomething()
+            {
+                Console.WriteLine(""Doing something..."");
+            }
+        }
+
+        public class Program
+        {
+            public static void Main()
+            {
+                Helper.DoSomething();
             }
         }
         ";
