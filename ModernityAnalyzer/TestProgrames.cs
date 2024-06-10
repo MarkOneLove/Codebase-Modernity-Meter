@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeModernityMeter1
+namespace ModernityAnalyzer
 {
     public class TestProgrames
     {
@@ -1225,5 +1226,249 @@ namespace CodeModernityMeter1
             }
         }
         ";
+
+        // 11.0 ref fields
+        public const string refFieldsProgramme = @"
+        public ref struct RefStructExample
+        {
+            private ref int _refField;
+
+            public RefStructExample(ref int refField)
+            {
+                _refField = ref refField;
+            }
+
+            public void SetValue(int value)
+            {
+                _refField = value;
+            }
+        }
+        ";
+
+        // 11.0 Required members
+        public const string reqMemProgramme = @"
+        public class Person
+        {
+            public required string FirstName { get; init; }
+            public required string LastName { get; init; }
+            public int Age { get; set; }
+
+            public Person()
+            {
+                // Optionally, you can provide default values or leave it empty
+            }
+        }
+        ";
+
+        // 11.0 Unsigned Right Shift
+        public const string unRightShiftProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                int negativeValue = -8;
+                uint positiveValue = 8;
+
+                int shiftedNegative = negativeValue >>> 2;
+                uint shiftedPositive = positiveValue >>> 2;
+            }
+        }
+        ";
+
+        // 11.0 Utf8 String Literals
+        public const string utf8StrLitProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                // UTF-8 string literal
+                var utf8Literal = ""example""u8;
+            }
+        }
+        ";
+
+        // 11.0 Pattern matching on ReadOnlySpan<char>
+        public const string patMatReadOnlyProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                ReadOnlySpan<char> input = ""example"".AsSpan();
+
+                switch (input)
+                {
+                    case ""example"":
+                        Console.WriteLine(""Matched 'example'"");
+                        break;
+                    case ""test"":
+                        Console.WriteLine(""Matched 'test'"");
+                        break;
+                    default:
+                        Console.WriteLine(""No match"");
+                        break;
+                }
+            }
+        }
+        ";
+
+        // 11.0 Checked Operators
+        public const string checkOpProgramme = @"
+        using System;
+
+        public struct SafeInt
+        {
+            private int value;
+
+            public SafeInt(int value)
+            {
+                this.value = value;
+            }
+
+            // Custom checked addition operator
+            public static SafeInt operator checked +(SafeInt a, SafeInt b)
+            {
+                return new SafeInt(checked(a.value + b.value));
+            }
+
+            // Custom unchecked addition operator
+            public static SafeInt operator unchecked +(SafeInt a, SafeInt b)
+            {
+                return new SafeInt(unchecked(a.value + b.value));
+            }
+
+            public override string ToString() => value.ToString();
+        }
+        ";
+
+        // 11.0 auto-default structs
+        public const string autoDefStructProgramme = @"
+        using System;
+
+        struct MyStruct
+        {
+            public int Number;
+            public string Text;
+        }
+        ";
+
+        // 11.0 Newlines in interpolations
+        public const string newlnInterpProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                int a = 1;
+                int b = 2;
+                string result = $@""Values:\n
+            a: {a}
+            b: {b}"";
+                Console.WriteLine(result);
+            }
+        }
+        ";
+
+        // 11.0 List patterns
+        public const string listPatProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                int[] numbers = { 1, 2, 3, 4, 5 };
+
+                string result = numbers switch
+                {
+                    [1, 2, 3, 4, 5] => ""Exact match"",
+                    [1, .., 5] => ""Starts with 1 and ends with 5"",
+                    [1, ..] => ""Starts with 1"",
+                    [.., 5] => ""Ends with 5"",
+                    [_, _, 3, _, _] => ""Third element is 3"",
+                    _ => ""No match""
+                };
+
+                Console.WriteLine(result);
+            }
+        }
+        ";
+
+        // 11.0 raw string literals
+        public const string rawStrLitProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                string rawString = """"""
+                This is a raw string literal.
+                It spans multiple lines
+                and preserves whitespace and indentation.
+                """""";
+
+                int x = 10;
+                int y = 20;
+                string interpolatedRawString = $""""""
+                The values are:
+                x = {x}
+                y = {y}
+                """";
+            }
+        }
+        ";
+
+        // 11.0 nameof(parameter)
+        public const string nameOfParamProgramme = @"
+        using System;
+
+        [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
+        sealed class ExampleAttribute : Attribute
+        {
+            public ExampleAttribute(string parameterName)
+            {
+                ParameterName = parameterName;
+            }
+
+            public string ParameterName { get; }
+        }
+
+        class Program
+        {
+            [Example(nameof(parameter))]
+            static void MyMethod(string parameter)
+            {
+                Console.WriteLine($""Method parameter name: {nameof(parameter)}"");
+            }
+
+            static void Main()
+            {
+                MyMethod(""test"");
+            }
+        }
+        ";
+
+        // 11.0 Generic attributes
+        public const string genAttrProgramme = @"
+           using System;
+
+        [GenericAttribute<int>(""This is a generic attribute for an integer type."")]
+        public class ExampleClass
+        {
+            [GenericAttribute<string>(""This is a generic attribute for a string type."")]
+            public void ExampleMethod()
+            {
+                // Method implementation
+            }
+        } 
+        ";
+
     }
 }

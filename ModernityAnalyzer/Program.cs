@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace CodeModernityMeter1
+namespace ModernityAnalyzer
 {
     internal class Program
     {
@@ -780,9 +780,9 @@ namespace CodeModernityMeter1
             }
 
             // C# 10.0: Parameterless struct constructors
-            if (node is StructDeclarationSyntax structDeclaration3)
+            if (node is StructDeclarationSyntax structDeclaration1)
             {
-                foreach (var member in structDeclaration3.Members)
+                foreach (var member in structDeclaration1.Members)
                 {
                     // Check if the member is a constructor declaration
                     if (member is ConstructorDeclarationSyntax constructorDeclaration)
@@ -825,6 +825,146 @@ namespace CodeModernityMeter1
                 }
             }
 
+            // C# 11.0: Required members
+            if (node is PropertyDeclarationSyntax propertyDeclaration2)
+            {
+                if (propertyDeclaration2.Modifiers.Any(SyntaxKind.RequiredKeyword))
+                {
+                    Console.WriteLine($"Required property found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+            else if (node is FieldDeclarationSyntax fieldDeclaration)
+            {
+                if (fieldDeclaration.Modifiers.Any(SyntaxKind.RequiredKeyword))
+                {
+                    foreach (var variable in fieldDeclaration.Declaration.Variables)
+                    {
+                        Console.WriteLine($"Required field found --> 11.0");
+                        data.dataStruct[11.0] += 1;
+                    }
+                }
+            }
+
+            // C# 11.0: Unsigned Right Shift
+            if (node.IsKind(SyntaxKind.UnsignedRightShiftExpression) || node.IsKind(SyntaxKind.UnsignedRightShiftAssignmentExpression))
+            {
+                Console.WriteLine($"Unsigned right shift expression found --> 11.0");
+                data.dataStruct[11.0] += 1;
+            }
+
+            // C# 11.0: Utf8 String Literals
+            if (node is LiteralExpressionSyntax literalExpression2)
+            {
+                if (literalExpression2.Token.Text.EndsWith("u8"))
+                {
+                    Console.WriteLine($"UTF-8 string literal found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+            // C# 11.0: Pattern matching on ReadOnlySpan<char>
+            if (node is SwitchStatementSyntax switchStatement1)
+            {
+                var typeInfo = model.GetTypeInfo(switchStatement1.Expression);
+
+                if (typeInfo.Type != null && typeInfo.Type.ToString() == "System.ReadOnlySpan<char>")
+                {
+                    Console.WriteLine($"Pattern matching on ReadOnlySpan<char> found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+            // C# 11.0: Checked Operators
+            if (node is OperatorDeclarationSyntax operatorDeclaration)
+            {
+                //Console.WriteLine($"{operatorDeclaration.CheckedKeyword.ToString()}");
+                if (operatorDeclaration.CheckedKeyword.ToString().Equals("checked"))
+                {
+                    Console.WriteLine($"Checked operator found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+            // C# 11.0: auto-default structs
+            if (node is StructDeclarationSyntax structDeclaration2)
+            {
+                bool hasConstructor = false;
+                foreach (var member in structDeclaration2.Members)
+                {
+                    if (member is ConstructorDeclarationSyntax)
+                    {
+                        hasConstructor = true;
+                        break;
+                    }
+                }
+
+                if (!hasConstructor)
+                {
+                    Console.WriteLine($"Auto-default struct found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+            // C# 11.0: Newlines in interpolations (NOT WORKING)
+            if (node is InterpolatedStringExpressionSyntax interpolatedString2)
+            {
+                foreach (var content in interpolatedString2.Contents)
+                {
+                    if (content is InterpolationSyntax interpolation)
+                    {
+                        var text = interpolation.ToString();
+                        if (text.Contains("\n"))
+                        {
+                            Console.WriteLine($"Newline in interpolation found --> 11.0");
+                            data.dataStruct[11.0] += 1;
+                        }
+                    }
+                }
+            }
+
+            // C# 11.0: List patterns
+            if (node is ListPatternSyntax)
+            {
+                Console.WriteLine($"List pattern found --> 11.0");
+                data.dataStruct[11.0] += 1;
+            }
+
+            // C# 11.0: Raw string literals (Does not detect for interpolated)
+            if (node is LiteralExpressionSyntax literalExpression3)
+            {
+                var token = literalExpression3.Token;
+                // Check if the token is a raw string literal
+                if (token.Kind() == SyntaxKind.MultiLineRawStringLiteralToken ||
+                    token.Kind() == SyntaxKind.InterpolatedMultiLineRawStringStartToken)
+                {
+                    Console.WriteLine($"Raw string literal found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
+            }
+
+            // C# 11.0: nameof(parameter)
+            if (node is AttributeSyntax attributeSyntax)
+            {
+                foreach (var argument in attributeSyntax.ArgumentList.Arguments)
+                {
+                    if (argument.Expression is InvocationExpressionSyntax invocation &&
+                        invocation.Expression is IdentifierNameSyntax identifier &&
+                        identifier.Identifier.Text == "nameof")
+                    {
+                        Console.WriteLine($"nameof usage found in attribute --> 11.0");
+                        data.dataStruct[11.0] += 1;
+                    }
+                }
+            }
+
+            // C# 11.0: Generic attributes
+            if (node is GenericNameSyntax nameSyntax)
+            {
+                Console.WriteLine($"Generic attribute found --> 11.0");
+                data.dataStruct[11.0] += 1;
+            }
+
 
 
             // Just printing the tree with more details
@@ -853,7 +993,7 @@ namespace CodeModernityMeter1
         static async Task Main(string[] args)
         {
             // <|><|><|> EDIT TEST CASE HERE <|><|><|>
-            string testCase = TestProgrames.fileLocTypeProgramme;
+            string testCase = TestProgrames.genAttrProgramme;
 
             SyntaxTree tree = CSharpSyntaxTree.ParseText(testCase);
             CompilationUnitSyntax root = tree.GetCompilationUnitRoot();

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ModernityAnalyzer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08f24c98571d4eb0a7152fd2da110af1e77a6d52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b09ae755c1ddd2c9f426ff3d4dc3daf9fe2cea40")]
 [assembly: System.Reflection.AssemblyProductAttribute("ModernityAnalyzer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ModernityAnalyzer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
