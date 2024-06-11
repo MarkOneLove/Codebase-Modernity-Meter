@@ -959,13 +959,116 @@ namespace ModernityAnalyzer
             }
 
             // C# 11.0: Generic attributes
-            if (node is GenericNameSyntax nameSyntax)
+            if (node is AttributeSyntax attributeSyntax3)
             {
-                Console.WriteLine($"Generic attribute found --> 11.0");
-                data.dataStruct[11.0] += 1;
+                // Check if the attribute has type arguments
+                if (attributeSyntax3.Name is GenericNameSyntax genericName)
+                {
+                    Console.WriteLine($"Generic attribute found --> 11.0");
+                    data.dataStruct[11.0] += 1;
+                }
             }
 
 
+            // ===== FEATURES INTODUCED IN 12.0 =====
+
+            // C# 12.0: ref readonly parameters
+            if (node is MethodDeclarationSyntax methodDeclaration4)
+            {
+                // Check if the method is partial
+                if (methodDeclaration4.Modifiers.Any(SyntaxKind.PartialKeyword))
+                {
+                    // Check for ref readonly parameters
+                    foreach (var parameter in methodDeclaration4.ParameterList.Parameters)
+                    {
+                        if (parameter.Modifiers.Any(SyntaxKind.RefKeyword) &&
+                            parameter.Modifiers.Any(SyntaxKind.ReadOnlyKeyword))
+                        {
+                            Console.WriteLine($"Partial method with ref readonly parameter found --> 12.0");
+                            data.dataStruct[12.0] += 1;
+                        }
+                    }
+                }
+            }
+
+            // C# 12.0: Collection Expressions
+            if (node is CollectionExpressionSyntax)
+            {
+                Console.WriteLine($"Collection expression found --> 12.0");
+                data.dataStruct[12.0] += 1;
+            }
+
+            // C# 12.0: Inline arrays
+            if (node is StructDeclarationSyntax structDeclaration3)
+            {
+                // Check for InlineArray attribute
+                foreach (var attributeList in structDeclaration3.AttributeLists)
+                {
+                    foreach (var attribute in attributeList.Attributes)
+                    {
+                        if (attribute.Name.ToString() == "InlineArray")
+                        {
+                            Console.WriteLine($"Inline array found in struct --> 12.0");
+                            data.dataStruct[12.0] += 1;
+                        }
+                    }
+                }
+            }
+
+            // C# 12.0: nameof accessing instance members
+            if (node is InvocationExpressionSyntax invocation1)
+            {
+                // Check if the invoked method is nameof
+                if (invocation1.Expression is IdentifierNameSyntax identifierName && identifierName.Identifier.Text == "nameof")
+                {
+                    //var argument = invocation.ArgumentList.Arguments.First();
+                    Console.WriteLine($"nameof found --> 12.0");
+                    data.dataStruct[12.0] += 1;
+                }
+            }
+
+            // C# 12.0: Using aliases for any type: using directive
+            if (node is UsingDirectiveSyntax usingDirective1)
+            {
+                if (usingDirective1.Alias != null)
+                {
+                    Console.WriteLine($"Alias found --> 12.0");
+                    data.dataStruct[12.0] += 1;
+                }
+            }
+
+            // C# 12.0: Primary Constructors
+            if (node is ClassDeclarationSyntax classDeclaration && classDeclaration.ParameterList != null)
+            {
+                Console.WriteLine($"Primary constructor found in class --> 12.0");
+                data.dataStruct[12.0] += 1;
+            }
+            if (node is StructDeclarationSyntax structDeclaration4 && structDeclaration4.ParameterList != null)
+            {
+                Console.WriteLine($"Primary constructor found in struct --> 12.0");
+                data.dataStruct[12.0] += 1;
+            }
+
+            // C# 12.0: Lambda optional parameters
+            if (node is ParenthesizedLambdaExpressionSyntax lambdaExpression)
+            {
+                // Check for optional parameters in the lambda expression
+                foreach (var parameter in lambdaExpression.ParameterList.Parameters)
+                {
+                    if (parameter.Default != null)
+                    {
+                        Console.WriteLine($"Optional parameter found in lambda --> 12.0");
+                        data.dataStruct[12.0] += 1;
+                    }
+                }
+            }
+
+            // C# 12.0: Experimental attribute
+            if (node is AttributeSyntax attr && attr.Name.ToString().Equals("Experimental"))
+            {
+                Console.WriteLine($"Experimental attribute found --> 12.0");
+                data.dataStruct[12.0] += 1;
+            }
 
             // Just printing the tree with more details
             // Print additional details of the current node (if any)
@@ -993,7 +1096,7 @@ namespace ModernityAnalyzer
         static async Task Main(string[] args)
         {
             // <|><|><|> EDIT TEST CASE HERE <|><|><|>
-            string testCase = TestProgrames.genAttrProgramme;
+            string testCase = TestProgrames.exprAttrProgramme;
 
             SyntaxTree tree = CSharpSyntaxTree.ParseText(testCase);
             CompilationUnitSyntax root = tree.GetCompilationUnitRoot();
@@ -1020,6 +1123,7 @@ namespace ModernityAnalyzer
             analysisData.dataStruct.Add(9.0, 0);
             analysisData.dataStruct.Add(10.0, 0);
             analysisData.dataStruct.Add(11.0, 0);
+            analysisData.dataStruct.Add(12.0, 0);
 
             // Some queries for specific features
 

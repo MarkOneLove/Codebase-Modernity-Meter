@@ -1470,5 +1470,176 @@ namespace ModernityAnalyzer
         } 
         ";
 
+        // 12.0 ref readonly parameters
+        public const string refReadParamProgramme = @"
+        public partial class ExampleClass
+        {
+            public partial void ProcessData(ref readonly int data);
+        }
+
+        public partial class ExampleClass
+        {
+            public partial void ProcessData(ref readonly int data)
+            {
+                Console.WriteLine($""Processing data: {data}"");
+            }
+        }
+        ";
+
+        // 12.0 Collection expressions
+        public const string colExprProgramme = @"
+        using System;
+        using System.Collections.Generic;
+
+        class Program
+        {
+            static void Main()
+            {
+                List<int> numbers = [1, 2, 3, 4, 5];
+                Dictionary<string, int> nameToAge = [""Alice"": 30, ""Bob"": 25, ""Charlie"": 35];
+            }
+        }
+        ";
+
+        // 12.0 Inline arrays
+        public const string inlnArrProgramme = @"
+        using System;
+        using System.Runtime.CompilerServices;
+
+        [InlineArray(5)]
+        public struct InlineArray5
+        {
+            public int Element0;
+            public int Element1;
+            public int Element2;
+            public int Element3;
+            public int Element4;
+        }
+
+        public struct ExampleStruct
+        {
+            public InlineArray5 Numbers;
+        }
+        ";
+
+        // 12.0 nameof accessing instance members
+        public const string nameofInstProgramme = @"
+        using System;
+
+        public class Person
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            private int age;
+
+            public void PrintNames()
+            {
+                Console.WriteLine(nameof(FirstName)); // Outputs: FirstName
+                Console.WriteLine(nameof(LastName));  // Outputs: LastName
+                Console.WriteLine(nameof(age));       // Outputs: age
+                Console.WriteLine(nameof(PrintNames)); // Outputs: PrintNames
+            }
+        }
+
+        class Program
+        {
+            static void Main()
+            {
+                Person person = new Person();
+                person.PrintNames();
+            }
+        }
+        ";
+
+        // 12.0 Using aliases for any type
+        public const string aliasProgrammme = @"
+        using System;
+        using MyList = System.Collections.Generic.List<int>;
+        using Point = System.Drawing.Point;
+        using ConfigDictionary = System.Collections.Generic.Dictionary<string, string>;
+
+        class Program
+        {
+            static void Main()
+            {
+                MyList numbers = new MyList { 1, 2, 3, 4, 5 };
+                Point point = new Point(10, 20);
+                ConfigDictionary config = new ConfigDictionary
+                {
+                    { ""Setting1"", ""Value1"" },
+                    { ""Setting2"", ""Value2"" }
+                };
+            }
+        }
+        ";
+
+        // 12.0 Primary Constructors
+        public const string primConstrProgramme = @"
+        public class Person(string firstName, string lastName)
+        {
+            public string FirstName { get; } = firstName;
+            public string LastName { get; } = lastName;
+
+            public void PrintFullName()
+            {
+                Console.WriteLine($""{FirstName} {LastName}"");
+            }
+        }
+
+        public struct Point(int x, int y)
+        {
+            public int X { get; } = x;
+            public int Y { get; } = y;
+
+            public void PrintCoordinates()
+            {
+                Console.WriteLine($""({X}, {Y})"");
+            }
+        }
+        ";
+
+        // 12.0 Lambda optional parameters
+        public const string lambdaOptProgramme = @"
+        using System;
+
+        class Program
+        {
+            static void Main()
+            {
+                // Lambda expression with an optional parameter
+                Func<int, int, int> add = (a, b = 10) => a + b;
+                Console.WriteLine(add(5, 20)); // Outputs: 25
+                Console.WriteLine(add(5)); // Outputs: 15 (since b defaults to 10)
+            }
+        }
+        ";
+
+        // 12.0 Experimental attr
+        public const string exprAttrProgramme = @"
+        using System;
+        using System.Diagnostics.CodeAnalysis;
+
+        namespace ExperimentalFeatures
+        {
+            [Experimental(""This class is experimental and may change in future versions."")]
+            public class ExperimentalClass
+            {
+                [Experimental(""This method is experimental and may change in future versions."")]
+                public void ExperimentalMethod()
+                {
+                    Console.WriteLine(""This is an experimental method."");
+                }
+            }
+
+            class Program
+            {
+                static void Main()
+                {
+                    var experimentalClass = new ExperimentalClass();
+                    experimentalClass.ExperimentalMethod();
+                }
+            }
+        }
+        ";
     }
 }
