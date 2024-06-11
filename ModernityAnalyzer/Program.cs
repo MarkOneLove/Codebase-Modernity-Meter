@@ -15,14 +15,17 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.CodeAnalysis.MSBuild;
+using static ModernityAnalyzer.Program;
 
 namespace ModernityAnalyzer
 {
-    internal class Program
+    public class Program
     {
 
         static void TraverseAST(SyntaxNode node, AnalysisData data, SemanticModel model, string indent)
         {
+
             // Print the type of the current node with indentation
             Console.WriteLine($"{indent}Node kind: {node.Kind()}");
 
@@ -103,7 +106,7 @@ namespace ModernityAnalyzer
             }
 
             // C# 7.2: Non-trailing named arguments (If its n-1 params like this its old version, if its less than that and code works means its 7.2???) (FIX WITH WHAT VADIM SAID)
-            if (node is InvocationExpressionSyntax invocationDeclaration)
+            /*if (node is InvocationExpressionSyntax invocationDeclaration)
             {
                 int argumentCount = 0;
                 int colonCount = 0;
@@ -131,7 +134,7 @@ namespace ModernityAnalyzer
                     Console.WriteLine("Non-trailing named arguments --> 7.2");
                     data.dataStruct[7.2] += 1;
                 }
-            }
+            }*/
 
             // C# 7.2: Allow digit separator after 0b or 0x
             if (node is LiteralExpressionSyntax literalExpression)
@@ -214,11 +217,14 @@ namespace ModernityAnalyzer
                     //Console.WriteLine($"{test.Type.Name is Tuple}");
 
                     // Check if both sides of the binary expression are tuples with semantic model
-                    if (model.GetTypeInfo(binaryExpression.Left).Type.IsTupleType && model.GetTypeInfo(binaryExpression.Right).Type.IsTupleType)
+                    try
                     {
-                        Console.WriteLine($"Found != or == for tuples --> 7.3");
-                        data.dataStruct[7.3] += 1;
-                    }
+                        if (model != null && model.GetTypeInfo(binaryExpression.Left).Type.IsTupleType && model.GetTypeInfo(binaryExpression.Right).Type.IsTupleType)
+                        {
+                            Console.WriteLine($"Found != or == for tuples --> 7.3");
+                            data.dataStruct[7.3] += 1;
+                        }
+                    } catch (Exception ex) { }
                 }
             }
 
@@ -1093,10 +1099,13 @@ namespace ModernityAnalyzer
             }
         }
 
-        static async Task Main(string[] args)
+        static public AnalysisData analyzeFile(string file)
         {
+            Console.SetOut(TextWriter.Null);
+
             // <|><|><|> EDIT TEST CASE HERE <|><|><|>
-            string testCase = TestProgrames.exprAttrProgramme;
+            //string testCase = TestProgrames.exprAttrProgramme;
+            string testCase = file;
 
             SyntaxTree tree = CSharpSyntaxTree.ParseText(testCase);
             CompilationUnitSyntax root = tree.GetCompilationUnitRoot();
@@ -1116,14 +1125,6 @@ namespace ModernityAnalyzer
 
             // Add all language versions that are supported by tool
             AnalysisData analysisData = new AnalysisData();
-            analysisData.dataStruct.Add(7.1, 0);
-            analysisData.dataStruct.Add(7.2, 0);
-            analysisData.dataStruct.Add(7.3, 0);
-            analysisData.dataStruct.Add(8.0, 0);
-            analysisData.dataStruct.Add(9.0, 0);
-            analysisData.dataStruct.Add(10.0, 0);
-            analysisData.dataStruct.Add(11.0, 0);
-            analysisData.dataStruct.Add(12.0, 0);
 
             // Some queries for specific features
 
@@ -1163,11 +1164,11 @@ namespace ModernityAnalyzer
             TraverseAST(root, analysisData, semanticModel, "");
 
             // Print results
-            Console.WriteLine("Language version : Feature count");
+            /*Console.WriteLine("Language version : Feature count");
             foreach (double key in analysisData.dataStruct.Keys)
             {
                 Console.WriteLine($"{key} : {analysisData.dataStruct[key]}");
-            }
+            }*/
             //Console.WriteLine($"The tree is a {root.Kind()} node.");
             //Console.WriteLine($"The tree has {root.Members.Count} elements in it.");
             //Console.WriteLine($"The tree has {root.Usings.Count} using statements. They are:");
@@ -1175,23 +1176,33 @@ namespace ModernityAnalyzer
             //foreach (UsingDirectiveSyntax element in root.Usings)
             //Console.WriteLine($"\t{element.Name}");
 
-            #if DEBUG
-            try
-            {
-                //...
-            }
-            finally
-            {
-                Console.WriteLine("Press enter to close...");
-                Console.ReadLine();
-            }
-            #endif
+            return analysisData;
         }
 
         // Class to store feature versions and all the data -> ToBeDeveloped
         public class AnalysisData
         {
             public Dictionary<double, int> dataStruct = new Dictionary<double, int>();
+
+            public AnalysisData()
+            {
+                this.dataStruct.Add(7.1, 0);
+                this.dataStruct.Add(7.2, 0);
+                this.dataStruct.Add(7.3, 0);
+                this.dataStruct.Add(8.0, 0);
+                this.dataStruct.Add(9.0, 0);
+                this.dataStruct.Add(10.0, 0);
+                this.dataStruct.Add(11.0, 0);
+                this.dataStruct.Add(12.0, 0);
+            }
+
+            public static AnalysisData concatenateData (AnalysisData d1, AnalysisData d2)
+            {
+                foreach (var key in d1.dataStruct.Keys) {
+                    d1.dataStruct[key] += d2.dataStruct[key];
+                }
+                return d1;
+            }
         }
 
         // Returns if an expression is used in a ref context

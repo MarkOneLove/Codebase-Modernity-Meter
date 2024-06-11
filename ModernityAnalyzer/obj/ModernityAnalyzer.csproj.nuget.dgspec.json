@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {}
+    "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {
+    "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
+        "projectUniqueName": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
         "projectName": "ModernityAnalyzer",
-        "projectPath": "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
+        "projectPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
         "packagesPath": "C:\\Users\\markt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\markt\\source\\repos\\ModernityAnalyzer\\ModernityAnalyzer\\obj\\",
+        "outputPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Build.Locator": {
+              "target": "Package",
+              "version": "[1.7.8, )"
+            },
             "Microsoft.CodeAnalysis.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -57,11 +61,27 @@
             },
             "Microsoft.CodeAnalysis.CSharp": {
               "target": "Package",
-              "version": "[4.9.2, )"
+              "version": "[4.10.0, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             },
             "Microsoft.CodeAnalysis.Common": {
               "target": "Package",
-              "version": "[4.9.2, )"
+              "version": "[4.10.0, )"
+            },
+            "Microsoft.CodeAnalysis.Workspaces.MSBuild": {
+              "target": "Package",
+              "version": "[4.10.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             }
           },
           "imports": [
