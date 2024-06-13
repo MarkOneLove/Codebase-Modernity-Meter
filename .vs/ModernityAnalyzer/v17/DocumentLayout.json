@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\testprogrames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,7 +21,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 175,
+          "DockedWidth": 225,
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -38,13 +38,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SolutionLoader.cs",
               "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
               "RelativeDocumentMoniker": "ModernityAnalyzer\\SolutionLoader.cs",
               "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
               "RelativeToolTip": "ModernityAnalyzer\\SolutionLoader.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAgwEkAAAA3AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCgAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-11T12:46:11.261Z",
               "EditorCaption": ""
@@ -52,7 +52,7 @@
           ]
         },
         {
-          "DockedWidth": 225,
+          "DockedWidth": 175,
           "SelectedChildIndex": 2,
           "Children": [
             {
@@ -67,20 +67,19 @@
               "RelativeDocumentMoniker": "ModernityAnalyzer\\TestProgrames.cs",
               "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\TestProgrames.cs",
               "RelativeToolTip": "ModernityAnalyzer\\TestProgrames.cs",
-              "ViewState": "AQIAAGIEAAAAAAAAAAAowFgEAAAVAAAA",
+              "ViewState": "AQIAAEoGAAAAAAAAAAAAAFgEAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:59:56.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T12:59:56.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
               "RelativeDocumentMoniker": "ModernityAnalyzer\\Program.cs",
               "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
               "RelativeToolTip": "ModernityAnalyzer\\Program.cs",
-              "ViewState": "AQIAAI8EAAAAAAAAAAAAALAEAAAnAAAA",
+              "ViewState": "AQIAAKYEAAAAAAAAAAAAAMAEAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-03T12:52:21.303Z",
               "EditorCaption": ""

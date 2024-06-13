@@ -105,36 +105,16 @@ namespace ModernityAnalyzer
                 }
             }
 
-            // C# 7.2: Non-trailing named arguments (If its n-1 params like this its old version, if its less than that and code works means its 7.2???) (FIX WITH WHAT VADIM SAID)
-            /*if (node is InvocationExpressionSyntax invocationDeclaration)
+            // C# 7.2: Non-trailing named arguments
+            if (node is InvocationExpressionSyntax invocation)
             {
-                int argumentCount = 0;
-                int colonCount = 0;
-                // Console.WriteLine($"{invocationDeclaration.ChildNodes}");
-                foreach (SyntaxNode child in node.ChildNodes()) // Argumentlist before argument
+                if (CheckArguments(invocation.ArgumentList.Arguments))
                 {
-                    if (child is ArgumentListSyntax argumentList)
-                    {
-                        foreach (SyntaxNode argumentListChild in child.ChildNodes())
-                        {
-                            argumentCount++;
-                            foreach (SyntaxNode childChild in argumentListChild.ChildNodes())
-                            {
-                                if (childChild is NameColonSyntax)
-                                {
-                                    colonCount++;
-                                }
-                            }
-                        }
-                    }
-                }
-                // Console.WriteLine($"{argumentCount} vs {colonCount}");
-                if (colonCount < argumentCount - 1)
-                {
-                    Console.WriteLine("Non-trailing named arguments --> 7.2");
+                    Console.WriteLine("Non - trailing named arguments found --> 7.2");
                     data.dataStruct[7.2] += 1;
+
                 }
-            }*/
+            }
 
             // C# 7.2: Allow digit separator after 0b or 0x
             if (node is LiteralExpressionSyntax literalExpression)
@@ -186,8 +166,46 @@ namespace ModernityAnalyzer
                 }
             }
 
-            // C# 7.2: Returning by readonly reference
 
+            // C# 7.2: interior pointer/Span/ref struct
+            if (node is StructDeclarationSyntax structDeclaration5)
+            {
+                // Check for ref struct
+                if (structDeclaration5.Modifiers.Any(SyntaxKind.RefKeyword))
+                {
+                    Console.WriteLine($"ref struct detected --> 7.2");
+                    data.dataStruct[7.2] += 1;
+                }
+
+                // Check for readonly struct
+                if (structDeclaration5.Modifiers.Any(SyntaxKind.ReadOnlyKeyword))
+                {
+                    Console.WriteLine($"readonly struct detected --> 7.2");
+                    data.dataStruct[7.2] += 1;
+                }
+            }
+            else if (node is ParameterSyntax parameter)
+            {
+                // Check for in parameter
+                if (parameter.Modifiers.Any(SyntaxKind.InKeyword))
+                {
+                    Console.WriteLine($"in parameter detected --> 7.2");
+                    data.dataStruct[7.2] += 1;
+                }
+            }
+            else if (node is VariableDeclarationSyntax variableDeclaration1)
+            {
+                // Check for Span<T> or ReadOnlySpan<T>
+                var type = variableDeclaration1.Type;
+                if (type is GenericNameSyntax genericName)
+                {
+                    if (genericName.Identifier.Text == "Span" || genericName.Identifier.Text == "ReadOnlySpan")
+                    {
+                        Console.WriteLine($"{genericName.Identifier.Text} detected --> 7.2");
+                        data.dataStruct[7.2] += 1;
+                    }
+                }
+            }
 
             // ===== FEATURES INTODUCED IN 7.3 =====
 
@@ -952,14 +970,17 @@ namespace ModernityAnalyzer
             // C# 11.0: nameof(parameter)
             if (node is AttributeSyntax attributeSyntax)
             {
-                foreach (var argument in attributeSyntax.ArgumentList.Arguments)
+                if (attributeSyntax.ArgumentList != null)
                 {
-                    if (argument.Expression is InvocationExpressionSyntax invocation &&
-                        invocation.Expression is IdentifierNameSyntax identifier &&
-                        identifier.Identifier.Text == "nameof")
+                    foreach (var argument in attributeSyntax.ArgumentList.Arguments)
                     {
-                        Console.WriteLine($"nameof usage found in attribute --> 11.0");
-                        data.dataStruct[11.0] += 1;
+                        if (argument.Expression is InvocationExpressionSyntax invocation2 &&
+                            invocation2.Expression is IdentifierNameSyntax identifier &&
+                            identifier.Identifier.Text == "nameof")
+                        {
+                            Console.WriteLine($"nameof usage found in attribute --> 11.0");
+                            data.dataStruct[11.0] += 1;
+                        }
                     }
                 }
             }
@@ -1251,6 +1272,30 @@ namespace ModernityAnalyzer
 
             // Check the inferred type context (not directly detectable in the AST)
             // This would usually be done through semantic analysis
+            return false;
+        }
+
+        static bool CheckArguments(SeparatedSyntaxList<ArgumentSyntax> arguments)
+        {
+            bool foundPositional = false;
+
+            foreach (var argument in arguments)
+            {
+                if (argument.NameColon != null)
+                {
+                    // Named argument
+                    if (foundPositional)
+                    {
+                        // A named argument found after a positional argument
+                        return true;
+                    }
+                }
+                else
+                {
+                    // Positional argument
+                    foundPositional = true;
+                }
+            }
             return false;
         }
 
