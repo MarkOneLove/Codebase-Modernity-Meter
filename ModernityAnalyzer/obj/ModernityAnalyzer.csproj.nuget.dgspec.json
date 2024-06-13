@@ -49,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "LibGit2Sharp": {
+              "target": "Package",
+              "version": "[0.30.0, )"
+            },
             "Microsoft.Build.Locator": {
               "target": "Package",
               "version": "[1.7.8, )"

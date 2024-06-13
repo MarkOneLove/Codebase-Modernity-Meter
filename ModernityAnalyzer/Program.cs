@@ -69,8 +69,6 @@ namespace ModernityAnalyzer
                 data.dataStruct[7.1] += 1;
             }
 
-
-
             // C# 7.1: Async Main (return Task/Task<int>)
             if (node is MethodDeclarationSyntax methodDeclaration)
             {
@@ -931,7 +929,7 @@ namespace ModernityAnalyzer
             }
 
             // C# 11.0: Newlines in interpolations (NOT WORKING)
-            if (node is InterpolatedStringExpressionSyntax interpolatedString2)
+            /*if (node is InterpolatedStringExpressionSyntax interpolatedString2)
             {
                 foreach (var content in interpolatedString2.Contents)
                 {
@@ -945,7 +943,7 @@ namespace ModernityAnalyzer
                         }
                     }
                 }
-            }
+            }*/
 
             // C# 11.0: List patterns
             if (node is ListPatternSyntax)
@@ -1091,11 +1089,11 @@ namespace ModernityAnalyzer
             }
 
             // C# 12.0: Experimental attribute
-            if (node is AttributeSyntax attr && attr.Name.ToString().Equals("Experimental"))
+            /*if (node is AttributeSyntax attr && attr.Name.ToString().Equals("Experimental"))
             {
                 Console.WriteLine($"Experimental attribute found --> 12.0");
                 data.dataStruct[12.0] += 1;
-            }
+            }*/
 
             // Just printing the tree with more details
             // Print additional details of the current node (if any)

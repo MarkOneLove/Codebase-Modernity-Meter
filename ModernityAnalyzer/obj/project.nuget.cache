@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6RU9nhdjMk/lcnpL4LrWHb2Pwvv6aZ2XWF+LJoj1j3kV8aLSO5ekNdt8RgPaUAR7KGxmjK2hsO348gzlLacHAQ==",
+  "dgSpecHash": "zz3MIoU45li5UQAIsiClk1e/Z4ubR0aQerEvoSCxMCSfLDM+OKYpiHQgoZ+/9HN+3GTHYD4kJnwdWYx8C94L6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\markt\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\libgit2sharp\\0.30.0\\libgit2sharp.0.30.0.nupkg.sha512",
+    "C:\\Users\\markt\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.322\\libgit2sharp.nativebinaries.2.0.322.nupkg.sha512",
     "C:\\Users\\markt\\.nuget\\packages\\microsoft.build\\17.7.2\\microsoft.build.17.7.2.nupkg.sha512",
     "C:\\Users\\markt\\.nuget\\packages\\microsoft.build.framework\\17.7.2\\microsoft.build.framework.17.7.2.nupkg.sha512",
     "C:\\Users\\markt\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
