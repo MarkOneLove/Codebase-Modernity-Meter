@@ -18,10 +18,10 @@ namespace ModernityAnalyzer
             Console.WriteLine("ENGINE STARTED");
 
             // PATH TO REPOS FOR ANALYSIS
-            string folderWithRepos = @"C:\Users\markt\Documents\CSharpRepos\";
+            string folderWithRepos = @"C:\Users\Mark\Desktop\Code Modernity Analyzer\CSharpRepos";
 
             // PATH TO FOLDER TO WRITE RESULTS
-            string pathToResults = @"C:\Users\markt\source\repos\Code Modernity Analyzer\Results5";
+            string pathToResults = @"C:\Users\Mark\Desktop\Code Modernity Analyzer\Results5";
             ClearDirectory(pathToResults);
 
             // Set up MSBuild workspace
@@ -81,7 +81,7 @@ namespace ModernityAnalyzer
 
                     foreach (var commit in commits)
                     {
-                        if (i == 50)
+                        if (i == 20)
                         {
                             /*var tags = repo.Tags.Where(tag => tag.Target.Id == commit.Id && 
                                 (tag.FriendlyName.StartsWith("v") || tag.FriendlyName.StartsWith("release")));

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {}
+    "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {
+    "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
+        "projectUniqueName": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
         "projectName": "ModernityAnalyzer",
-        "projectPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
-        "packagesPath": "C:\\Users\\markt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\obj\\",
+        "projectPath": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\ModernityAnalyzer.csproj",
+        "packagesPath": "C:\\Users\\Mark\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\markt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mark\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

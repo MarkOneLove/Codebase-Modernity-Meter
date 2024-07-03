@@ -1,21 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\",
+  "WorkspaceRootPath": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\mark\\desktop\\code modernity analyzer\\modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\solutionloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\mark\\desktop\\code modernity analyzer\\modernityanalyzer\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\mark\\desktop\\code modernity analyzer\\modernityanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\markt\\source\\repos\\code modernity analyzer\\modernityanalyzer\\testprogrames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|c:\\users\\mark\\desktop\\code modernity analyzer\\modernityanalyzer\\testprogrames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB8654FA-1883-42D5-9FA3-BAA9A7717D74}|ModernityAnalyzer\\ModernityAnalyzer.csproj|solutionrelative:modernityanalyzer\\testprogrames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -25,30 +29,35 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 225,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 298,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAEAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-07-03T18:32:42.331Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SolutionLoader.cs",
-              "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
               "RelativeDocumentMoniker": "ModernityAnalyzer\\SolutionLoader.cs",
-              "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
+              "ToolTip": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\SolutionLoader.cs",
               "RelativeToolTip": "ModernityAnalyzer\\SolutionLoader.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAA8AAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-11T12:46:11.261Z",
               "EditorCaption": ""
@@ -56,47 +65,49 @@
           ]
         },
         {
-          "DockedWidth": 175,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 102,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TestProgrames.cs",
-              "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\TestProgrames.cs",
-              "RelativeDocumentMoniker": "ModernityAnalyzer\\TestProgrames.cs",
-              "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\TestProgrames.cs",
-              "RelativeToolTip": "ModernityAnalyzer\\TestProgrames.cs",
-              "ViewState": "AQIAAC8GAAAAAAAAAAAAAFgEAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:59:56.432Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
-              "RelativeDocumentMoniker": "ModernityAnalyzer\\Program.cs",
-              "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
-              "RelativeToolTip": "ModernityAnalyzer\\Program.cs",
-              "ViewState": "AQIAAP0DAAAAAAAAAAAAABwEAAANAAAA",
+              "Title": "Repositories.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\Repositories.cs",
+              "RelativeDocumentMoniker": "ModernityAnalyzer\\Repositories.cs",
+              "ToolTip": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\Repositories.cs",
+              "RelativeToolTip": "ModernityAnalyzer\\Repositories.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwAoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:52:21.303Z",
+              "WhenOpened": "2024-06-13T11:01:28.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Repositories.cs",
-              "DocumentMoniker": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Repositories.cs",
-              "RelativeDocumentMoniker": "ModernityAnalyzer\\Repositories.cs",
-              "ToolTip": "C:\\Users\\markt\\source\\repos\\Code Modernity Analyzer\\ModernityAnalyzer\\Repositories.cs",
-              "RelativeToolTip": "ModernityAnalyzer\\Repositories.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAnAAAA",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
+              "RelativeDocumentMoniker": "ModernityAnalyzer\\Program.cs",
+              "ToolTip": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\Program.cs",
+              "RelativeToolTip": "ModernityAnalyzer\\Program.cs",
+              "ViewState": "AQIAAP0DAAAAAAAAAAAAABwEAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T11:01:28.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T12:52:21.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TestProgrames.cs",
+              "DocumentMoniker": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\TestProgrames.cs",
+              "RelativeDocumentMoniker": "ModernityAnalyzer\\TestProgrames.cs",
+              "ToolTip": "C:\\Users\\Mark\\Desktop\\Code Modernity Analyzer\\ModernityAnalyzer\\TestProgrames.cs",
+              "RelativeToolTip": "ModernityAnalyzer\\TestProgrames.cs",
+              "ViewState": "AQIAAC8GAAAAAAAAAAAAAFgEAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:59:56.432Z"
             }
           ]
         }

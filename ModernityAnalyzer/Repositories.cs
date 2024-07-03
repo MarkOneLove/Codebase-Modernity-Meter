@@ -19,7 +19,7 @@ namespace ModernityAnalyzer
             listOfRepos = new Dictionary<string, string>();
             //listOfRepos.Add("Files", "https://github.com/files-community/Files.git");
             //listOfRepos.Add("ShareX", "https://github.com/ShareX/ShareX.git");
-            listOfRepos.Add("SteamTools", "https://github.com/BeyondDimension/SteamTools.git");
+            listOfRepos.Add("aspire", "https://github.com/dotnet/aspire.git");
 
 
         }

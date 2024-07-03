@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ModernityAnalyzer
-build_property.ProjectDir = C:\Users\markt\source\repos\Code Modernity Analyzer\ModernityAnalyzer\
+build_property.ProjectDir = C:\Users\Mark\Desktop\Code Modernity Analyzer\ModernityAnalyzer\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
